@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class MockNetworkService: NetworkService {
+public class MockNetworkService: NetworkService {
     
     public var mockData: Any?
     public var shouldThrowError: Bool = false

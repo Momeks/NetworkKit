@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class URLSessionNetworkService: NetworkService {
+public class URLSessionNetworkService: NetworkService {
     private var session: URLSession
     private var decoder: JSONDecoder
     
