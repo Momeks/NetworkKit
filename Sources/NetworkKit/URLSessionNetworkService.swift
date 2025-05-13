@@ -7,11 +7,6 @@
 
 import Foundation
 
-// Conforming to @unchecked Sendable because this class is immutable after initialization.
-// Both URLSession and JSONDecoder are thread-safe for concurrent use when used as read-only.
-// We use this class across concurrency boundaries (e.g., in async tasks or injected as dependencies),
-// and need to assure the compiler it’s safe to do so, even though Swift cannot verify it automatically.
-
 public final class URLSessionNetworkService: NetworkService, @unchecked Sendable {
     private var session: URLSession
     private var decoder: JSONDecoder

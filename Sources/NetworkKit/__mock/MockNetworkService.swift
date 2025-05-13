@@ -7,8 +7,9 @@
 
 import Foundation
 
-public class MockNetworkService: NetworkService {
-    
+/*** Marked @unchecked Sendable to satisfy Swift 6's protocol conformance requirement
+ while manually ensuring thread safety across concurrent access */
+public final class MockNetworkService: NetworkService, @unchecked Sendable {
     public var mockData: Any?
     public var shouldThrowError: Bool = false
     public var errorToThrow: NetworkError = .invalidResponse
