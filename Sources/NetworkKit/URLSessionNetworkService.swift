@@ -7,9 +7,14 @@
 
 import Foundation
 
+/**
+Marked as @unchecked Sendable because this type is immutable after initialization.
+Since Swift can't automatically prove this safety, we assert it manually to allow
+safe usage across concurrency domains (e.g., in async tasks or injected dependencies).
+*/
 public final class URLSessionNetworkService: NetworkService, @unchecked Sendable {
-    private var session: URLSession
-    private var decoder: JSONDecoder
+    private let session: URLSession
+    private let decoder: JSONDecoder
     
     public init(session: URLSession = .shared, decoder: JSONDecoder = .init()) {
         self.session = session
